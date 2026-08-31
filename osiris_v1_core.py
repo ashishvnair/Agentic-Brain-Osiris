@@ -1,5 +1,5 @@
 """
-Osiris v4 Gold Standard - Infinite Autonomous Engine
+Osiris v1 - Infinite Autonomous Engine
 - SearXNG Docker JSON Support (Aggregates surviving search engines automatically)
 - True Infinite Loop (Runs until LLM satisfies checklist constraints)
 - Full End-of-Run Telemetry & Token Tracking
@@ -127,7 +127,7 @@ class OsirisState:
 # ============================================================
 def emit(text):
     print(text)
-    with open("osiris_v4_scratchpad.log", "a", encoding="utf-8") as f:
+    with open("osiris_v1_scratchpad.log", "a", encoding="utf-8") as f:
         f.write(text + "\n")
 
 def fetch_model_name():
@@ -323,7 +323,7 @@ def run_agent(query):
     state = OsirisState(query, constraints)
     
     emit("\n" + "═" * 60)
-    emit(" OSIRIS v4 - INFINITE GOLD STANDARD ENGINE")
+    emit(" OSIRIS v1 - INFINITE AUTONOMOUS ENGINE")
     emit(f" Model    : {model_name}")
     emit(f" Search   : SearXNG Backend ({SEARXNG_URL})")
     emit(f" Task     : {query}")
@@ -345,7 +345,7 @@ def run_agent(query):
             active_tools = ALL_TOOLS
             reflection_notice = ""
 
-        system_instructions = f"""You are Osiris v4, a stateful investigative research engine.
+        system_instructions = f"""You are Osiris v1, a stateful investigative research engine.
 OPERATIONAL DIRECTIVES:
 1. DO NOT RE-SEARCH facts already CONFIRMED or UNRESOLVABLE.
 2. EVALUATE LATEST OBSERVATION: If it answers a constraint, call `commit_finding`.
@@ -431,4 +431,4 @@ OPERATIONAL DIRECTIVES:
 
 if __name__ == "__main__":
     if len(sys.argv) > 1: run_agent(" ".join(sys.argv[1:]))
-    else: print('Usage: python osiris_v4_core.py "<task>"')
+    else: print('Usage: python osiris_v1_core.py "<task>"')
