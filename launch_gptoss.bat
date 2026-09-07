@@ -34,9 +34,8 @@ REM ============================================================
 D:\llm\llama.cpp\build\bin\Release\llama-server.exe ^
   -m D:\llm\models\gpt-oss-120b-GGUF\gpt-oss-120b-F16.gguf ^
   -nr -ncmoe 32 -fa on --jinja --no-warmup ^
-  -c 4096 -t 16 -tb 16 -np 1 ^
+  -c 16384 -t 16 -tb 16 -np 2 ^
   -b 4096 -ub 2048 ^
   --cache-type-k q8_0 --cache-type-v q8_0 ^
-  --temp 1.0 --top-p 1.0 --top-k 0 --min-p 0.0 ^
   --host 127.0.0.1 --port 8080
 pause
